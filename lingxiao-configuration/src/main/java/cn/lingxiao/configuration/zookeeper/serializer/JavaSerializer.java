@@ -17,8 +17,8 @@ package cn.lingxiao.configuration.zookeeper.serializer;
 
 
 import cn.lingxiao.configuration.zookeeper.SerializerName;
-import cn.zensezz.lingxiao.enums.SerializeEnum;
-import cn.zensezz.lingxiao.exception.SerializerException;
+import cn.zensezz.lingxiao.common.enums.SerializeEnum;
+import cn.zensezz.lingxiao.common.exception.SerializerException;
 import org.I0Itec.zkclient.exception.ZkMarshallingError;
 import org.I0Itec.zkclient.serialize.ZkSerializer;
 

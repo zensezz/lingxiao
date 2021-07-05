@@ -13,27 +13,21 @@
  * limitations under the License.
  */
 
-package cn.zensezz.lingxiao.common;
+package cn.zensezz.lingxiao.common.exception;
 
+public class SerializerException extends RuntimeException {
 
-public interface RedisKeyConstants {
+    private static final long serialVersionUID = 1L;
 
-    static final String PLUGIN_INFO = ":i";
-
-    static final String PLUGIN_SELECTOR = ":s";
-
-    static final String PLUGIN = "k:p";
-
-    static final String SELECTOR = "k:s";
-
-
-    public static String pluginSelectorKey(final String pluginName) {
-        return String.join("", pluginName, PLUGIN_SELECTOR);
+    public SerializerException(final Throwable e) {
+        super(e);
     }
 
-    public static String pluginInfoKey(final String pluginName) {
-        return String.join("", pluginName, PLUGIN_INFO);
-
+    public SerializerException(final String message) {
+        super(message);
     }
 
+    public SerializerException(final String message, final Throwable throwable) {
+        super(message, throwable);
+    }
 }

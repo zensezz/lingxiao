@@ -9,7 +9,6 @@
 		<artifactId>lingxiao</artifactId>
 	</parent>
 
-
 	<artifactId>lingxiao-configuration</artifactId>
 	<description>lingxiao-configuration</description>
 
@@ -19,7 +18,6 @@
 			<groupId>cn.zensezz</groupId>
 			<artifactId>lingxiao-common</artifactId>
 			<scope>compile</scope>
-			<version>1.0.0</version>
 		</dependency>
 
 		<dependency>

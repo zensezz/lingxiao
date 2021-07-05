@@ -13,29 +13,42 @@
  * limitations under the License.
  */
 
-package cn.zensezz.lingxiao.common;
+package cn.zensezz.lingxiao.common.enums;
 
-public interface DubboParamConstants {
+import lombok.Getter;
+import lombok.RequiredArgsConstructor;
 
-    public static final String PARAM_CLASS = "paramClass";
+import java.util.Arrays;
+import java.util.Objects;
 
-    public static final String CLASS_PARAMS = "classParams";
+@RequiredArgsConstructor
+@Getter
+public enum HttpMethodEnum {
 
-    public static final String PARAMS = "params";
+    GET("get"),
 
-    public static final String INTERFACE_NAME = "interfaceName";
+    POST("post"),
 
-    public static final String LOAD_BALANCE = "loadbalance";
+    PUT("put"),
 
-    public static final String METHOD = "method";
+    DELETE("delete"),
 
-    public static final String TIMEOUT = "timeout";
+    HEAD("head"),
 
-    public static final String VERSION = "version";
+    CONNECT("connect"),
 
-    public static final String GROUP = "group";
+    OPTIONS("options"),
 
-    public static final String RETRIES = "retries";
+    TRACE("trace"),
 
+    ;
+
+    private final String name;
+
+    public static HttpMethodEnum convertByName(final String name) {
+        return Arrays.stream(HttpMethodEnum.values())
+                .filter(httpMethodEnum -> Objects.equals(httpMethodEnum.name, name))
+                .findFirst().orElse(null);
+    }
 
 }

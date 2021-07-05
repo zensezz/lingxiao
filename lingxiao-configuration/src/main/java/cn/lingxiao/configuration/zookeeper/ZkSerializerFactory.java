@@ -16,7 +16,7 @@
 package cn.lingxiao.configuration.zookeeper;
 
 import cn.lingxiao.configuration.zookeeper.serializer.JavaSerializer;
-import cn.zensezz.lingxiao.util.SpiLoadFactory;
+import cn.zensezz.lingxiao.common.util.SpiLoadFactory;
 import org.I0Itec.zkclient.serialize.ZkSerializer;
 
 import java.util.Objects;

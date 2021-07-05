@@ -13,25 +13,35 @@
  * limitations under the License.
  */
 
-package cn.zensezz.lingxiao.util;
+package cn.zensezz.lingxiao.common.enums;
 
-import java.util.Iterator;
-import java.util.ServiceLoader;
+import lombok.Getter;
+import lombok.RequiredArgsConstructor;
 
-public class SpiLoadFactory {
+import java.util.Arrays;
+import java.util.List;
+import java.util.stream.Collectors;
 
-    public static <S> S loadFirst(final Class<S> clazz) {
-        final ServiceLoader<S> loader = loadAll(clazz);
-        final Iterator<S> iterator = loader.iterator();
-        if (!iterator.hasNext()) {
-            throw new IllegalStateException(String.format(
-                    "No implementation defined in /META-INF/services/%s, please check whether the file exists and has the right implementation class!",
-                    clazz.getName()));
-        }
-        return iterator.next();
-    }
+@RequiredArgsConstructor
+@Getter
+public enum OperatorEnum {
 
-    public static <S> ServiceLoader<S> loadAll(final Class<S> clazz) {
-        return ServiceLoader.load(clazz);
+    MATCH("match", true),
+
+    EQUAL("=", true),
+
+    GT(">", false),
+
+    LT("<", false),
+
+    LIKE("like", true);
+
+    private final String alias;
+
+    private final Boolean support;
+
+    public static List<OperatorEnum> acquireSupport() {
+        return Arrays.stream(OperatorEnum.values())
+                .filter(e -> e.support).collect(Collectors.toList());
     }
 }

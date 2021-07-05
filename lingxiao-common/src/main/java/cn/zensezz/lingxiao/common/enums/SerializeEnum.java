@@ -13,23 +13,36 @@
  * limitations under the License.
  */
 
-package cn.zensezz.lingxiao.common;
+package cn.zensezz.lingxiao.common.enums;
 
-import java.util.concurrent.TimeUnit;
+import lombok.Getter;
+import lombok.RequiredArgsConstructor;
 
-
-public interface HttpConstants {
-
-
-    /**
-     * 客户端轮询读取超时
-     */
-    public static final long CLIENT_POLLING_READ_TIMEOUT = TimeUnit.SECONDS.toMillis(90);
+import java.util.Arrays;
+import java.util.Objects;
+import java.util.Optional;
 
 
-    /**
-     *  服务器最大保持超时
-     */
-    public static final long SERVER_MAX_HOLD_TIMEOUT = TimeUnit.SECONDS.toMillis(60);
+@Getter
+@RequiredArgsConstructor
+public enum SerializeEnum {
 
+    JDK("jdk"),
+
+    KRYO("kryo"),
+
+    HESSIAN("hessian"),
+
+    PROTOSTUFF("protostuff");
+
+    private final String serialize;
+
+    public static SerializeEnum acquire( String serialize) {
+        Optional<SerializeEnum> serializeEnum =
+                Arrays.stream(SerializeEnum.values())
+                        .filter(v -> Objects.equals(v.getSerialize(), serialize))
+                        .findFirst();
+        return serializeEnum.orElse(SerializeEnum.KRYO);
+
+    }
 }

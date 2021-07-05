@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-package cn.zensezz.lingxiao.common;
+package cn.zensezz.lingxiao.common.constants;
 
 public interface ZookeeperPathConstants {
 

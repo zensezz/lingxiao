@@ -13,36 +13,23 @@
  * limitations under the License.
  */
 
-package cn.zensezz.lingxiao.enums;
+package cn.zensezz.lingxiao.common.enums;
 
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 
-import java.util.Arrays;
-import java.util.Objects;
-import java.util.Optional;
-
-
-@Getter
 @RequiredArgsConstructor
-public enum SerializeEnum {
+@Getter
+public enum LoadBalanceEnum {
 
-    JDK("jdk"),
+    HASH(1, "hash"),
 
-    KRYO("kryo"),
+    RANDOM(2, "random"),
 
-    HESSIAN("hessian"),
+    ROUND_ROBIN(3, "round_tobin");
 
-    PROTOSTUFF("protostuff");
+    private final int code;
 
-    private final String serialize;
+    private final String name;
 
-    public static SerializeEnum acquire( String serialize) {
-        Optional<SerializeEnum> serializeEnum =
-                Arrays.stream(SerializeEnum.values())
-                        .filter(v -> Objects.equals(v.getSerialize(), serialize))
-                        .findFirst();
-        return serializeEnum.orElse(SerializeEnum.KRYO);
-
-    }
 }

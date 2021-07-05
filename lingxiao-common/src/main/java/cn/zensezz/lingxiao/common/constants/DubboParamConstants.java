@@ -13,21 +13,29 @@
  * limitations under the License.
  */
 
-package cn.zensezz.lingxiao.exception;
+package cn.zensezz.lingxiao.common.constants;
 
-public class SerializerException extends RuntimeException {
+public interface DubboParamConstants {
 
-    private static final long serialVersionUID = 1L;
+    public static final String PARAM_CLASS = "paramClass";
 
-    public SerializerException(final Throwable e) {
-        super(e);
-    }
+    public static final String CLASS_PARAMS = "classParams";
 
-    public SerializerException(final String message) {
-        super(message);
-    }
+    public static final String PARAMS = "params";
 
-    public SerializerException(final String message, final Throwable throwable) {
-        super(message, throwable);
-    }
+    public static final String INTERFACE_NAME = "interfaceName";
+
+    public static final String LOAD_BALANCE = "loadbalance";
+
+    public static final String METHOD = "method";
+
+    public static final String TIMEOUT = "timeout";
+
+    public static final String VERSION = "version";
+
+    public static final String GROUP = "group";
+
+    public static final String RETRIES = "retries";
+
+
 }

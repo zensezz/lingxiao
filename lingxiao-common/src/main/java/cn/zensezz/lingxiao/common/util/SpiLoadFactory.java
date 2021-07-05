@@ -13,16 +13,25 @@
  * limitations under the License.
  */
 
-package cn.zensezz.lingxiao.common;
+package cn.zensezz.lingxiao.common.util;
 
-public interface Constants {
+import java.util.Iterator;
+import java.util.ServiceLoader;
 
-    String DUBBO_RPC_RESULT = "dubbo_rpc_result";
+public class SpiLoadFactory {
 
-    String DUBBO_RPC_PARAMS = "dubbo_rpc_params";
+    public static <S> S loadFirst(final Class<S> clazz) {
+        final ServiceLoader<S> loader = loadAll(clazz);
+        final Iterator<S> iterator = loader.iterator();
+        if (!iterator.hasNext()) {
+            throw new IllegalStateException(String.format(
+                    "No implementation defined in /META-INF/services/%s, please check whether the file exists and has the right implementation class!",
+                    clazz.getName()));
+        }
+        return iterator.next();
+    }
 
-    String REJECT_MSG = " You are forbidden to visit";
-
-
+    public static <S> ServiceLoader<S> loadAll(final Class<S> clazz) {
+        return ServiceLoader.load(clazz);
+    }
 }
-

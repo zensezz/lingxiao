@@ -13,23 +13,23 @@
  * limitations under the License.
  */
 
-package cn.zensezz.lingxiao.enums;
+package cn.zensezz.lingxiao.common.constants;
 
-import lombok.Getter;
-import lombok.RequiredArgsConstructor;
+import java.util.concurrent.TimeUnit;
 
-@RequiredArgsConstructor
-@Getter
-public enum LoadBalanceEnum {
 
-    HASH(1, "hash"),
+public interface HttpConstants {
 
-    RANDOM(2, "random"),
 
-    ROUND_ROBIN(3, "round_tobin");
+    /**
+     * 客户端轮询读取超时
+     */
+    public static final long CLIENT_POLLING_READ_TIMEOUT = TimeUnit.SECONDS.toMillis(90);
 
-    private final int code;
 
-    private final String name;
+    /**
+     *  服务器最大保持超时
+     */
+    public static final long SERVER_MAX_HOLD_TIMEOUT = TimeUnit.SECONDS.toMillis(60);
 
 }

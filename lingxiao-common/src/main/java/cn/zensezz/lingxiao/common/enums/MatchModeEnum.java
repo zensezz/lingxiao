@@ -13,35 +13,20 @@
  * limitations under the License.
  */
 
-package cn.zensezz.lingxiao.enums;
+package cn.zensezz.lingxiao.common.enums;
 
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 
-import java.util.Arrays;
-import java.util.List;
-import java.util.stream.Collectors;
-
 @RequiredArgsConstructor
 @Getter
-public enum OperatorEnum {
+public enum MatchModeEnum {
 
-    MATCH("match", true),
+    AND(0, "and"),
 
-    EQUAL("=", true),
+    OR(1, "or");
 
-    GT(">", false),
+    private final int code;
 
-    LT("<", false),
-
-    LIKE("like", true);
-
-    private final String alias;
-
-    private final Boolean support;
-
-    public static List<OperatorEnum> acquireSupport() {
-        return Arrays.stream(OperatorEnum.values())
-                .filter(e -> e.support).collect(Collectors.toList());
-    }
+    private final String name;
 }

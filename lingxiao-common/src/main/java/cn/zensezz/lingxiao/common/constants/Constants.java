@@ -13,20 +13,16 @@
  * limitations under the License.
  */
 
-package cn.zensezz.lingxiao.enums;
+package cn.zensezz.lingxiao.common.constants;
 
-import lombok.Getter;
-import lombok.RequiredArgsConstructor;
+public interface Constants {
 
-@RequiredArgsConstructor
-@Getter
-public enum MatchModeEnum {
+    String DUBBO_RPC_RESULT = "dubbo_rpc_result";
 
-    AND(0, "and"),
+    String DUBBO_RPC_PARAMS = "dubbo_rpc_params";
 
-    OR(1, "or");
+    String REJECT_MSG = " You are forbidden to visit";
 
-    private final int code;
 
-    private final String name;
 }
+

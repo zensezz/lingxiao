@@ -13,47 +13,27 @@
  * limitations under the License.
  */
 
-package cn.zensezz.lingxiao.enums;
-
-import lombok.Getter;
-import lombok.RequiredArgsConstructor;
-
-import java.util.Arrays;
-import java.util.Objects;
-
-/**
- * this is http method support.
- * @author xiaoyu(Myth)
- */
-@RequiredArgsConstructor
-@Getter
-public enum HttpMethodEnum {
-
-    GET("get"),
-
-    POST("post"),
-
-    PUT("put"),
-
-    DELETE("delete"),
-
-    HEAD("head"),
-
-    CONNECT("connect"),
-
-    OPTIONS("options"),
-
-    TRACE("trace"),
-
-    ;
+package cn.zensezz.lingxiao.common.constants;
 
 
-    private final String name;
+public interface RedisKeyConstants {
 
-    public static HttpMethodEnum convertByName(final String name) {
-        return Arrays.stream(HttpMethodEnum.values())
-                .filter(httpMethodEnum -> Objects.equals(httpMethodEnum.name, name))
-                .findFirst().orElse(null);
+    static final String PLUGIN_INFO = ":i";
+
+    static final String PLUGIN_SELECTOR = ":s";
+
+    static final String PLUGIN = "k:p";
+
+    static final String SELECTOR = "k:s";
+
+
+    public static String pluginSelectorKey(final String pluginName) {
+        return String.join("", pluginName, PLUGIN_SELECTOR);
+    }
+
+    public static String pluginInfoKey(final String pluginName) {
+        return String.join("", pluginName, PLUGIN_INFO);
+
     }
 
 }
