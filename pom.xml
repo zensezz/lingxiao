@@ -21,6 +21,7 @@
     <modules>
         <module>lingxiao-bootstrap</module>
         <module>lingxiao-common</module>
+        <module>lingxiao-configuration</module>
     </modules>
 
     <licenses>
