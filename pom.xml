@@ -106,6 +106,7 @@
         <maven-checkstyle-plugin.version>3.1.0</maven-checkstyle-plugin.version>
         <frontend-maven-plugin.version>1.6</frontend-maven-plugin.version>
         <frontend-maven-plugin.node.version>v12.14.1</frontend-maven-plugin.node.version>
+        <spring-data-influxdb.version>1.7</spring-data-influxdb.version>
     </properties>
 
     <dependencyManagement>
@@ -387,6 +388,12 @@
                 <version>${hutool.version}</version>
             </dependency>
 
+            <dependency>
+                <groupId>com.github.miwurster</groupId>
+                <artifactId>spring-data-influxdb</artifactId>
+                <version>${spring-data-influxdb.version}</version>
+            </dependency>
+
         </dependencies>
 
     </dependencyManagement>
@@ -432,6 +439,7 @@
             <version>${mockito.version}</version>
             <scope>test</scope>
         </dependency>
+
 
     </dependencies>
 

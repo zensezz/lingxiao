@@ -13,26 +13,15 @@
  * limitations under the License.
  */
 
-package cn.zensezz.lingxiao.common.constants;
+package cn.linxiao.web.disruptor.factory;
 
-public interface Constants {
+import cn.linxiao.web.disruptor.event.LingxiaoDataEvent;
+import com.lmax.disruptor.EventFactory;
 
+public class LingxiaoEventFactory implements EventFactory<LingxiaoDataEvent> {
 
-    String REQUESTDTO = "requestDTO";
-
-    String CLIENT_RESPONSE_ATTR = "webHandlerClientResponse";
-
-    String DUBBO_RPC_RESULT = "dubbo_rpc_result";
-
-    String CLIENT_RESPONSE_RESULT_TYPE = "webHandlerClientResponseResultType";
-
-    String DUBBO_RPC_PARAMS = "dubbo_rpc_params";
-
-    String LINGXIOA_DISRUPTOR_THREAD_NAME = "lingxiao-disruptor";
-
-    int LINGXIAO_EVENT_PUBLISHER_BUFF_SIZE = 1024;
-
-
-
+    @Override
+    public LingxiaoDataEvent newInstance() {
+        return new LingxiaoDataEvent();
+    }
 }
-

@@ -13,26 +13,16 @@
  * limitations under the License.
  */
 
-package cn.zensezz.lingxiao.common.constants;
+package cn.linxiao.web.disruptor.translator;
 
-public interface Constants {
+import cn.linxiao.web.disruptor.event.LingxiaoDataEvent;
+import cn.linxiao.web.entity.dos.MonitorDo;
+import com.lmax.disruptor.EventTranslatorOneArg;
 
+public class LingxiaoEventTranslator implements EventTranslatorOneArg<LingxiaoDataEvent, MonitorDo> {
 
-    String REQUESTDTO = "requestDTO";
-
-    String CLIENT_RESPONSE_ATTR = "webHandlerClientResponse";
-
-    String DUBBO_RPC_RESULT = "dubbo_rpc_result";
-
-    String CLIENT_RESPONSE_RESULT_TYPE = "webHandlerClientResponseResultType";
-
-    String DUBBO_RPC_PARAMS = "dubbo_rpc_params";
-
-    String LINGXIOA_DISRUPTOR_THREAD_NAME = "lingxiao-disruptor";
-
-    int LINGXIAO_EVENT_PUBLISHER_BUFF_SIZE = 1024;
-
-
-
+    @Override
+    public void translateTo(final LingxiaoDataEvent lingxiaoDataEvent, final long l, final MonitorDo monitorDo) {
+        lingxiaoDataEvent.setMonitorDO(monitorDo);
+    }
 }
-

@@ -13,26 +13,35 @@
  * limitations under the License.
  */
 
-package cn.zensezz.lingxiao.common.constants;
+package cn.zensezz.lingxiao.common.dto.zk;
 
-public interface Constants {
+import lombok.Data;
 
+import java.io.Serializable;
+import java.util.List;
 
-    String REQUESTDTO = "requestDTO";
+@Data
+public class SelectorZkDto implements Serializable {
 
-    String CLIENT_RESPONSE_ATTR = "webHandlerClientResponse";
+    private String id;
 
-    String DUBBO_RPC_RESULT = "dubbo_rpc_result";
+    private Integer pluginId;
 
-    String CLIENT_RESPONSE_RESULT_TYPE = "webHandlerClientResponseResultType";
+    private String pluginName;
 
-    String DUBBO_RPC_PARAMS = "dubbo_rpc_params";
+    private String name;
 
-    String LINGXIOA_DISRUPTOR_THREAD_NAME = "lingxiao-disruptor";
+    private Integer matchMode;
 
-    int LINGXIAO_EVENT_PUBLISHER_BUFF_SIZE = 1024;
+    private Boolean type;
 
+    private Integer rank;
 
+    private Boolean enabled;
 
+    private Boolean loged;
+
+    private Boolean continued;
+
+    private List<ConditionZkDto> conditionZkDTOList;
 }
-

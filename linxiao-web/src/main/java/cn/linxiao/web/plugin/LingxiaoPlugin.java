@@ -13,26 +13,25 @@
  * limitations under the License.
  */
 
-package cn.zensezz.lingxiao.common.constants;
+package cn.linxiao.web.plugin;
 
-public interface Constants {
+import cn.zensezz.lingxiao.common.enums.PluginTypeEnum;
+import org.springframework.web.server.ServerWebExchange;
+import reactor.core.publisher.Mono;
 
+public interface LingxiaoPlugin {
 
-    String REQUESTDTO = "requestDTO";
+    Mono<Void> execute(ServerWebExchange exchange, LingxiaoPluginChain chain);
 
-    String CLIENT_RESPONSE_ATTR = "webHandlerClientResponse";
+    PluginTypeEnum pluginType();
 
-    String DUBBO_RPC_RESULT = "dubbo_rpc_result";
+    int getOrder();
 
-    String CLIENT_RESPONSE_RESULT_TYPE = "webHandlerClientResponseResultType";
+    String named();
 
-    String DUBBO_RPC_PARAMS = "dubbo_rpc_params";
-
-    String LINGXIOA_DISRUPTOR_THREAD_NAME = "lingxiao-disruptor";
-
-    int LINGXIAO_EVENT_PUBLISHER_BUFF_SIZE = 1024;
-
-
+    default Boolean skip(ServerWebExchange exchange) {
+        return false;
+    }
 
 }
 

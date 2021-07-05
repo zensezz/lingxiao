@@ -13,26 +13,31 @@
  * limitations under the License.
  */
 
-package cn.zensezz.lingxiao.common.constants;
+package cn.linxiao.web.entity.dos;
 
-public interface Constants {
+import lombok.Data;
 
+import java.io.Serializable;
 
-    String REQUESTDTO = "requestDTO";
+@Data
+public class MonitorDo implements Serializable {
 
-    String CLIENT_RESPONSE_ATTR = "webHandlerClientResponse";
+    private String module;
 
-    String DUBBO_RPC_RESULT = "dubbo_rpc_result";
+    private String ip;
 
-    String CLIENT_RESPONSE_RESULT_TYPE = "webHandlerClientResponseResultType";
+    private String host;
 
-    String DUBBO_RPC_PARAMS = "dubbo_rpc_params";
+    private String method;
 
-    String LINGXIOA_DISRUPTOR_THREAD_NAME = "lingxiao-disruptor";
+    private Integer count;
 
-    int LINGXIAO_EVENT_PUBLISHER_BUFF_SIZE = 1024;
+    /**
+     *  success /error /timeout.
+     */
+    private String resultType;
 
-
+    private String rpcType;
+    
 
 }
-

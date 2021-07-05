@@ -13,26 +13,35 @@
  * limitations under the License.
  */
 
-package cn.zensezz.lingxiao.common.constants;
+package cn.zensezz.lingxiao.common.enums;
 
-public interface Constants {
+import lombok.Getter;
+import lombok.RequiredArgsConstructor;
 
+@Getter
+@RequiredArgsConstructor
+public enum PluginEnum {
 
-    String REQUESTDTO = "requestDTO";
+    GLOBAL(1, "global"),
 
-    String CLIENT_RESPONSE_ATTR = "webHandlerClientResponse";
+    SIGN(2, "sign"),
 
-    String DUBBO_RPC_RESULT = "dubbo_rpc_result";
+    WAF(10, "waf"),
 
-    String CLIENT_RESPONSE_RESULT_TYPE = "webHandlerClientResponseResultType";
+    RATE_LIMITER(20, "rate_limiter"),
 
-    String DUBBO_RPC_PARAMS = "dubbo_rpc_params";
+    REWRITE(30, "rewrite"),
 
-    String LINGXIOA_DISRUPTOR_THREAD_NAME = "lingxiao-disruptor";
+    REDIRECT(40, "redirect"),
 
-    int LINGXIAO_EVENT_PUBLISHER_BUFF_SIZE = 1024;
+    DIVIDE(50, "divide"),
 
+    DUBBO(60, "dubbo"),
 
+    MONITOR(70, "monitor");
+
+    private final int code;
+
+    private final String name;
 
 }
-

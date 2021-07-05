@@ -13,35 +13,16 @@
  * limitations under the License.
  */
 
-package cn.zensezz.lingxiao.common.dto.zk;
+package cn.linxiao.web.plugin;
 
-import lombok.Data;
+import org.springframework.web.server.ServerWebExchange;
+import reactor.core.publisher.Mono;
 
-import java.io.Serializable;
-import java.util.List;
+public interface LingxiaoPluginChain {
 
-@Data
-public class SelectorZkDTO implements Serializable {
+    /**
+     * Delegate to the next {@code WebFilter} in the chain.
+     */
+    Mono<Void> execute(ServerWebExchange exchange);
 
-    private String id;
-
-    private Integer pluginId;
-
-    private String pluginName;
-
-    private String name;
-
-    private Integer matchMode;
-
-    private Boolean type;
-
-    private Integer rank;
-
-    private Boolean enabled;
-
-    private Boolean loged;
-
-    private Boolean continued;
-
-    private List<ConditionZkDto> conditionZkDTOList;
 }
