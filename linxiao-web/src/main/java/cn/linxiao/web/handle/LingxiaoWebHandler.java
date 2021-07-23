@@ -21,9 +21,10 @@ import org.springframework.web.server.ServerWebExchange;
 import org.springframework.web.server.WebHandler;
 import reactor.core.publisher.Mono;
 
+import javax.validation.constraints.NotNull;
 import java.util.List;
 
-final class LingxiaoWebHandler implements WebHandler {
+public final class LingxiaoWebHandler implements WebHandler {
 
     private List<LingxiaoPlugin> plugins;
 
@@ -32,7 +33,7 @@ final class LingxiaoWebHandler implements WebHandler {
     }
 
     @Override
-    public Mono<Void> handle(final ServerWebExchange exchange) {
+    public Mono<Void> handle(@NotNull final ServerWebExchange exchange) {
         return new DefaultLingxiaoPluginChain(plugins).execute(exchange).doOnError(Throwable::printStackTrace);
     }
 

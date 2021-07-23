@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<artifactId>lingxiao</artifactId>
+		<groupId>cn.zensezz</groupId>
+		<version>1.0.0</version>
+	</parent>
+
+	<packaging>pom</packaging>
+	<artifactId>lingxiao-spring-boot-starter</artifactId>
+	<name>lingxiao-spring-boot-starter</name>
+	<description>lingxiao-spring-boot-starter</description>
+
+	<modules>
+		<module>lingxiao-spring-boot-starter-gateway</module>
+		<module>lingxiao-spring-boot-starter-plugin</module>
+	</modules>
+</project>

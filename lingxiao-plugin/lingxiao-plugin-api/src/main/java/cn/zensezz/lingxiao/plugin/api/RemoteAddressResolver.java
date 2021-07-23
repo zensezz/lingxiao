@@ -13,26 +13,13 @@
  * limitations under the License.
  */
 
-package cn.zensezz.lingxiao.common.constants;
+package cn.zensezz.lingxiao.plugin.api;import org.springframework.web.server.ServerWebExchange;
 
-public interface Constants {
+import java.net.InetSocketAddress;
 
-    String REQUESTDTO = "requestDTO";
+public interface RemoteAddressResolver {
 
-    String CLIENT_RESPONSE_ATTR = "webHandlerClientResponse";
-
-    String DUBBO_RPC_RESULT = "dubbo_rpc_result";
-
-    String CLIENT_RESPONSE_RESULT_TYPE = "webHandlerClientResponseResultType";
-
-    String DUBBO_RPC_PARAMS = "dubbo_rpc_params";
-
-    String LINGXIOA_DISRUPTOR_THREAD_NAME = "lingxiao-disruptor";
-
-    int LINGXIAO_EVENT_PUBLISHER_BUFF_SIZE = 1024;
-
-    String DECODE = "UTF-8";
-
-
+    default InetSocketAddress resolve(ServerWebExchange exchange) {
+        return exchange.getRequest().getRemoteAddress();
+    }
 }
-

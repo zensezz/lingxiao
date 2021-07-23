@@ -23,6 +23,8 @@
         <module>lingxiao-common</module>
         <module>lingxiao-configuration</module>
         <module>linxiao-web</module>
+        <module>lingxiao-spring-boot-starter</module>
+        <module>lingxiao-plugin</module>
     </modules>
 
     <licenses>

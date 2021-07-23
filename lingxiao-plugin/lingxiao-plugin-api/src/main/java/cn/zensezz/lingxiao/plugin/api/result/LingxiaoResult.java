@@ -5,7 +5,9 @@
  * The ASF licenses this file to You under the Apache License, Version 2.0
  * (the "License"); you may not use this file except in compliance with
  * the License.  You may obtain a copy of the License at
+ *
  *     http://www.apache.org/licenses/LICENSE-2.0
+ *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
@@ -13,26 +15,17 @@
  * limitations under the License.
  */
 
-package cn.zensezz.lingxiao.common.constants;
+package cn.zensezz.lingxiao.plugin.api.result;
 
-public interface Constants {
+public class LingxiaoResult implements ILingxiaoResult<LingxiaoEntity> {
 
-    String REQUESTDTO = "requestDTO";
+    @Override
+    public LingxiaoEntity success(final int code, final String message, final Object object) {
+        return LingxiaoEntity.success(code, message, object);
+    }
 
-    String CLIENT_RESPONSE_ATTR = "webHandlerClientResponse";
-
-    String DUBBO_RPC_RESULT = "dubbo_rpc_result";
-
-    String CLIENT_RESPONSE_RESULT_TYPE = "webHandlerClientResponseResultType";
-
-    String DUBBO_RPC_PARAMS = "dubbo_rpc_params";
-
-    String LINGXIOA_DISRUPTOR_THREAD_NAME = "lingxiao-disruptor";
-
-    int LINGXIAO_EVENT_PUBLISHER_BUFF_SIZE = 1024;
-
-    String DECODE = "UTF-8";
-
-
+    @Override
+    public LingxiaoEntity error(final int code, final String message, final Object object) {
+        return LingxiaoEntity.error(code, message, object);
+    }
 }
-

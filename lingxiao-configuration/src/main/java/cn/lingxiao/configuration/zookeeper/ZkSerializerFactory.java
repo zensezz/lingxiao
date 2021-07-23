@@ -34,7 +34,7 @@ public class ZkSerializerFactory {
      * @return ZkSerializer
      */
     public static ZkSerializer of(final String className) {
-        return StreamSupport.stream(SERVICE_LOADER.spliterator(), false)
+        return StreamSupport.stream(SERVICE_LOADER.spliterator(), true)
                 .filter(service ->
                         Objects.equals(service.getClass().getName()
                                         .substring(service.getClass().getName().lastIndexOf(".") + 1),

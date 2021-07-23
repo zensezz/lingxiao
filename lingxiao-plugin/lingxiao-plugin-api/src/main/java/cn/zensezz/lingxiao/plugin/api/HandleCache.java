@@ -12,27 +12,13 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+package cn.zensezz.lingxiao.plugin.api;
 
-package cn.zensezz.lingxiao.common.constants;
+public interface HandleCache<K, V> {
 
-public interface Constants {
+    V obtainHandle(K key);
 
-    String REQUESTDTO = "requestDTO";
+    void cachedHandle(K key, V value);
 
-    String CLIENT_RESPONSE_ATTR = "webHandlerClientResponse";
-
-    String DUBBO_RPC_RESULT = "dubbo_rpc_result";
-
-    String CLIENT_RESPONSE_RESULT_TYPE = "webHandlerClientResponseResultType";
-
-    String DUBBO_RPC_PARAMS = "dubbo_rpc_params";
-
-    String LINGXIOA_DISRUPTOR_THREAD_NAME = "lingxiao-disruptor";
-
-    int LINGXIAO_EVENT_PUBLISHER_BUFF_SIZE = 1024;
-
-    String DECODE = "UTF-8";
-
-
+    void removeHandle(K key);
 }
-
