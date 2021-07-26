@@ -24,5 +24,33 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
     <artifactId>lingxiao-plugin-base</artifactId>
+    <dependencies>
+        <dependency>
+            <groupId>cn.zensezz</groupId>
+            <artifactId>lingxiao-plugin-api</artifactId>
+            <version>1.0.0</version>
+            <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-webflux</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>cn.zensezz</groupId>
+            <artifactId>lingxiao-spi</artifactId>
+            <version>1.0.0</version>
+            <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>cn.zensezz</groupId>
+            <artifactId>lingxiao-sync-data-center-api</artifactId>
+            <version>1.0.0</version>
+            <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-lang3</artifactId>
+        </dependency>
+    </dependencies>
 
 </project>

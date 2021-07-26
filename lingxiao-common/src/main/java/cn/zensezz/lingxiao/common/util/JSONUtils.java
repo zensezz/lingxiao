@@ -17,6 +17,7 @@ package cn.zensezz.lingxiao.common.util;
 
 
 import cn.hutool.core.util.StrUtil;
+import cn.zensezz.lingxiao.common.annotation.IgnoreType;
 import com.fasterxml.jackson.core.JsonParser;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
@@ -48,43 +49,9 @@ import java.util.Map;
 @Slf4j
 public final class JSONUtils {
 
-    static ObjectMapper mapper = new ObjectMapper();
-    
-    public static byte[] getJsonBytes(Object o) {
-        try {
-            return mapper.writerFor(o.getClass()).writeValueAsBytes(o);
-        } catch (JsonProcessingException e) {
-            throw new RuntimeException(e);
-        }
-    }
-
-    public static String getJsonString(Object instance) {
-        try {
-            return mapper.writerFor(instance.getClass()).writeValueAsString(instance);
-        } catch (JsonProcessingException e) {
-            throw new RuntimeException(e);
-        }
-    }
-
-    public static <T> T readJsonString(String jsonStr, Class<T> objClass) {
-        try {
-            return mapper.readerFor(objClass).readValue(jsonStr);
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
-    }
+    private static final ObjectMapper MAPPER = new ObjectMapper();
 
     static {
-        mapper.disable(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES);
-        mapper.configure(JsonParser.Feature.ALLOW_COMMENTS, true);
-        mapper.configure(JsonParser.Feature.ALLOW_UNQUOTED_FIELD_NAMES, true);
-        mapper.configure(JsonParser.Feature.ALLOW_SINGLE_QUOTES, true);
-        mapper.configure(JsonParser.Feature.ALLOW_UNQUOTED_CONTROL_CHARS, true);
-        mapper.setDateFormat(new SimpleDateFormat("yyyy-MM-dd HH:mm:ss"));
-        //SimpleModule byteModule = new SimpleModule();
-        //byteModule.addSerializer(byte[].class, new ByteSerializer());
-        //byteModule.addDeserializer(byte[].class, new ByteDeserializer());
-        //mapper.registerModule(byteModule);
         JavaTimeModule javaTimeModule = new JavaTimeModule();
         javaTimeModule.addSerializer(LocalDateTime.class, new LocalDateTimeSerializer(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss")));
         javaTimeModule.addSerializer(LocalDate.class, new LocalDateSerializer(DateTimeFormatter.ofPattern("yyyy-MM-dd")));
@@ -92,12 +59,45 @@ public final class JSONUtils {
         javaTimeModule.addDeserializer(LocalDateTime.class, new LocalDateTimeDeserializer(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss")));
         javaTimeModule.addDeserializer(LocalDate.class, new LocalDateDeserializer(DateTimeFormatter.ofPattern("yyyy-MM-dd")));
         javaTimeModule.addDeserializer(LocalTime.class, new LocalTimeDeserializer(DateTimeFormatter.ofPattern("HH:mm:ss")));
-        mapper.registerModule(javaTimeModule);
+        MAPPER.disable(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES)
+                .disable(SerializationFeature.FAIL_ON_EMPTY_BEANS)
+                .configure(JsonParser.Feature.ALLOW_COMMENTS, true)
+                .configure(JsonParser.Feature.ALLOW_UNQUOTED_FIELD_NAMES, true)
+                .configure(JsonParser.Feature.ALLOW_SINGLE_QUOTES, true)
+                .configure(JsonParser.Feature.ALLOW_UNQUOTED_CONTROL_CHARS, true)
+                .setDateFormat(new SimpleDateFormat("yyyy-MM-dd HH:mm:ss"))
+                .registerModule(javaTimeModule)
+                .addMixIn(Map.class, IgnoreType.class);
     }
-    
+
+
+    public static byte[] getJsonBytes(Object o) {
+        try {
+            return MAPPER.writerFor(o.getClass()).writeValueAsBytes(o);
+        } catch (JsonProcessingException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    public static String getJsonString(Object instance) {
+        try {
+            return MAPPER.writerFor(instance.getClass()).writeValueAsString(instance);
+        } catch (JsonProcessingException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    public static <T> T readJsonString(String jsonStr, Class<T> objClass) {
+        try {
+            return MAPPER.readerFor(objClass).readValue(jsonStr);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
     public static String toJson(Object object) {
         try {
-            return mapper.writeValueAsString(object);
+            return MAPPER.writeValueAsString(object);
         } catch (IOException e) {
             log.warn("write to json string error:" + object, e);
             return null;
@@ -109,7 +109,7 @@ public final class JSONUtils {
             return null;
         }
         try {
-            return mapper.readValue(jsonString, clazz);
+            return MAPPER.readValue(jsonString, clazz);
         } catch (IOException e) {
             log.warn("parse json string error:" + jsonString, e);
             return null;
@@ -121,7 +121,7 @@ public final class JSONUtils {
             return null;
         }
         try {
-            return mapper.readValue(jsonString, jsonTypeReference);
+            return MAPPER.readValue(jsonString, jsonTypeReference);
         } catch (IOException e) {
             log.warn("parse json string error:" + jsonString, e);
             return null;
@@ -148,7 +148,7 @@ public final class JSONUtils {
             return null;
         }
         try {
-            return (T) mapper.readValue(jsonString, javaType);
+            return (T) MAPPER.readValue(jsonString, javaType);
         } catch (IOException e) {
             log.warn("parse json string error:" + jsonString, e);
             return null;
@@ -156,12 +156,12 @@ public final class JSONUtils {
     }
     
     public static JavaType buildCollectionType(Class<? extends Collection> collectionClass, Class<?> elementClass) {
-        return mapper.getTypeFactory().constructCollectionType(collectionClass, elementClass);
+        return MAPPER.getTypeFactory().constructCollectionType(collectionClass, elementClass);
     }
 
     
     public static JavaType buildMapType(Class<? extends Map> mapClass, Class<?> keyClass, Class<?> valueClass) {
-        return mapper.getTypeFactory().constructMapType(mapClass, keyClass, valueClass);
+        return MAPPER.getTypeFactory().constructMapType(mapClass, keyClass, valueClass);
     }
 
   
@@ -170,8 +170,8 @@ public final class JSONUtils {
     }
     
     public void enableEnumUseToString() {
-        mapper.enable(SerializationFeature.WRITE_ENUMS_USING_TO_STRING);
-        mapper.enable(DeserializationFeature.READ_ENUMS_USING_TO_STRING);
+        MAPPER.enable(SerializationFeature.WRITE_ENUMS_USING_TO_STRING);
+        MAPPER.enable(DeserializationFeature.READ_ENUMS_USING_TO_STRING);
     }
 
 }

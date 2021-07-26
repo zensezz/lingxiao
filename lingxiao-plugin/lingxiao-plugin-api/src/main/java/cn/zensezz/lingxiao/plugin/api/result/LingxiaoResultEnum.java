@@ -28,7 +28,7 @@ public enum LingxiaoResultEnum {
 
     SUCCESS(200, "Access to success!"),
 
-    SIGN_IS_NOT_PASS(401, "Sign is not pass shenyu!"),
+    SIGN_IS_NOT_PASS(401, "Sign is not pass lingxiao!"),
 
     ERROR_TOKEN(401, "Illegal authorization"),
 
@@ -61,7 +61,7 @@ public enum LingxiaoResultEnum {
 
     TIME_ERROR(-101, "Your time parameter is incorrect or has expired!"),
 
-    RULE_NOT_FOUND(-102, "Rule not found!"),
+    RULE_NOT_FOUND(-102, "rule not found!"),
 
     SERVICE_RESULT_ERROR(-103, "Service invocation exception, or no result is returned!"),
 
@@ -69,7 +69,19 @@ public enum LingxiaoResultEnum {
 
     SIGN_TIME_IS_TIMEOUT(-105, "The signature timestamp has exceeded %s minutes!"),
 
-    REQUEST_ENTITY_TOO_LARGE(413, "Request Entity Too Large");
+    REQUEST_ENTITY_TOO_LARGE(413, "Request Entity Too Large"),
+
+    CANNOT_FIND_URL(-106,"can not find url"),
+
+
+    SELECTOR_NOT_FOUND(-107,"can not find  selector"),
+
+    REQUEST_HEADER_TOO_LARGE(431, "Request Header Fields Too Large"),
+
+    ;
+
+
+
 
     private final int code;
 

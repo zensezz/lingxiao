@@ -25,6 +25,8 @@
         <module>linxiao-web</module>
         <module>lingxiao-spring-boot-starter</module>
         <module>lingxiao-plugin</module>
+        <module>lingxiao-spi</module>
+        <module>lingxiao-sync-data-center</module>
     </modules>
 
     <licenses>

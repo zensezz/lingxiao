@@ -33,6 +33,27 @@ public interface Constants {
 
     String DECODE = "UTF-8";
 
+    String CONTEXT = "context";
+
+    String PARAM_TRANSFORM = "param_transform";
+
+    int DEFAULT_WARMUP = 10 * 60 * 1000;
+
+    long TIME_OUT = 3000;
+
+    int HEADER_MAX_SIZE = 10240;
+
+    int REQUEST_MAX_SIZE = 102400;
+
+    String COLONS = ":";
+
+    String HTTP_URL = "httpUrl";
+
+    String HTTP_TIME_OUT = "httpTimeOut";
+
+    String HTTP_RETRY = "httpRetry";
+
+    String REWRITE_URI = "rewrite_uri";
 
 }
 

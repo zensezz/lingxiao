@@ -18,30 +18,81 @@ package cn.zensezz.lingxiao.common.enums;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 
-@Getter
+import java.util.Arrays;
+import java.util.List;
+
 @RequiredArgsConstructor
+@Getter
 public enum PluginEnum {
 
-    GLOBAL(1, "global"),
+    GLOBAL(1, 0, "global"),
 
-    SIGN(2, "sign"),
+    SIGN(2, 0, "sign"),
 
-    WAF(10, "waf"),
+    JWT(9, 0, "jwt"),
 
-    RATE_LIMITER(20, "rate_limiter"),
+    OAUTH2(3, 0, "oauth2"),
 
-    REWRITE(30, "rewrite"),
+    WAF(10, 0, "waf"),
 
-    REDIRECT(40, "redirect"),
+    RATE_LIMITER(20, 0, "rate_limiter"),
 
-    DIVIDE(50, "divide"),
+    PARAM_MAPPING(22, 0, "param_mapping"),
 
-    DUBBO(60, "dubbo"),
+    CONTEXT_PATH(25, 0, "context_path"),
 
-    MONITOR(70, "monitor");
+    REWRITE(30, 0, "rewrite"),
+
+    REDIRECT(40, 0, "redirect"),
+
+    REQUEST(42, 0, "request"),
+
+    MODIFY_RESPONSE(44, 0, "modifyResponse"),
+
+    HYSTRIX(45, 0, "hystrix"),
+
+    SENTINEL(45, 0, "sentinel"),
+
+    RESILIENCE4J(45, 0, "resilience4j"),
+
+    LOGGING(45, 0, "logging"),
+
+    DIVIDE(50, 0, "divide"),
+
+    SPRING_CLOUD(50, 0, "springCloud"),
+
+    WEB_SOCKET(55, 0, "webSocket"),
+
+    PARAM_TRANSFORM(58, 0, "paramTransform"),
+
+    DUBBO(60, 0, "dubbo"),
+
+    SOFA(60, 0, "sofa"),
+
+    TARS(60, 0, "tars"),
+
+    GRPC(60, 0, "grpc"),
+
+    MOTAN(60, 0, "motan"),
+
+    MONITOR(80, 0, "monitor"),
+
+    RESPONSE(100, 0, "response");
+
 
     private final int code;
 
+    private final int role;
+
     private final String name;
 
+    public static PluginEnum getPluginEnumByName(final String name) {
+        return Arrays.stream(PluginEnum.values())
+                .filter(pluginEnum -> pluginEnum.getName().equals(name))
+                .findFirst().orElse(PluginEnum.GLOBAL);
+    }
+
+    public static List<String> getUpstreamNames() {
+        return Arrays.asList(DIVIDE.name, GRPC.name, TARS.name);
+    }
 }
