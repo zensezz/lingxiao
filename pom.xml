@@ -27,6 +27,10 @@
         <module>lingxiao-plugin</module>
         <module>lingxiao-spi</module>
         <module>lingxiao-sync-data-center</module>
+        <module>lingxiao-examples</module>
+        <module>lingxiao-client</module>
+        <module>lingxiao-disruptor</module>
+        <module>lingxiao-register-center</module>
     </modules>
 
     <licenses>

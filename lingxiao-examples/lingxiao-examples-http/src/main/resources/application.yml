@@ -1,0 +1,23 @@
+server:
+  port: 8189
+  address: 0.0.0.0
+
+lingxiao:
+  client:
+    registerType: http #zookeeper #etcd #nacos #consul
+    serverLists: http://localhost:9095 #localhost:2181 #http://localhost:2379 #localhost:8848
+    props:
+      contextPath: /http
+      appName: http
+      port: 8189
+      nacosNameSpace: LingxiaoRegisterCenter
+
+logging:
+  level:
+    root: info
+    org.springframework.boot: info
+    org.apache.ibatis: info
+    cn.zensezz.lingxiao.bonuspoint: info
+    cn.zensezz.lingxiao.test.lottery: debug
+    cn.zensezz.lingxiao.test: debug
+

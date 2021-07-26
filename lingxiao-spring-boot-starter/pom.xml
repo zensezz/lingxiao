@@ -16,5 +16,6 @@
 	<modules>
 		<module>lingxiao-spring-boot-starter-gateway</module>
 		<module>lingxiao-spring-boot-starter-plugin</module>
+		<module>lingxiao-spring-boot-starter-client</module>
 	</modules>
 </project>
