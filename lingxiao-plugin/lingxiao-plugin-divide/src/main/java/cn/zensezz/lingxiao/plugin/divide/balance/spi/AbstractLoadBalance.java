@@ -18,7 +18,6 @@ package cn.zensezz.lingxiao.plugin.divide.balance.spi;
 import cn.zensezz.lingxiao.common.constants.Constants;
 import cn.zensezz.lingxiao.common.dto.convert.DivideUpstream;
 import cn.zensezz.lingxiao.plugin.divide.balance.LoadBalance;
-import cn.zensezz.lingxiao.plugin.divide.cache.balance.LoadBalance;
 import org.springframework.util.CollectionUtils;
 
 import java.util.List;

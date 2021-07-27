@@ -59,7 +59,7 @@ public abstract class AbstractLingxiaoPlugin implements LingxiaoPlugin {
             }
             RuleData rule;
             if (selectorData.getType() == SelectorTypeEnum.FULL_FLOW.getCode()) {
-                //get last
+
                 rule = rules.get(rules.size() - 1);
             } else {
                 rule = matchRule(exchange, rules);

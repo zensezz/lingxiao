@@ -21,7 +21,7 @@ public enum CacheKeyUtils {
 
     INST;
 
-    public String getKey(final RuleData ruleData) {
+    public String getKey(RuleData ruleData) {
         return ruleData.getSelectorId() + "_" + ruleData.getName();
     }
 }

@@ -32,7 +32,7 @@
     <name>lingxiao-sync-data-center</name>
 
     <modules>
-        <module>lingixao-sync-data-api</module>
+        <module>lingxiao-sync-data-center-api</module>
     </modules>
 
 </project>

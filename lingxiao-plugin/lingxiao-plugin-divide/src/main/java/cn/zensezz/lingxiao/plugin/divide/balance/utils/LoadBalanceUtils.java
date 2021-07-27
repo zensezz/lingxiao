@@ -18,8 +18,8 @@
 package cn.zensezz.lingxiao.plugin.divide.balance.utils;
 
 import cn.zensezz.lingxiao.common.dto.convert.DivideUpstream;
+import cn.zensezz.lingxiao.plugin.divide.balance.LoadBalance;
 import cn.zensezz.lingxiao.spi.ExtensionLoader;
-import cn.zensezz.lingxiao.plugin.divide.cache.balance.LoadBalance;
 
 import java.util.List;
 

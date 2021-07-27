@@ -41,8 +41,8 @@ public class HttpServerConfig {
     }
 
     @Bean
-    public RouterFunction<ServerResponse> monoRouterFunction(LingxiaoTestHttpRouter shenyuTestHttpRouter) {
-        return shenyuTestHttpRouter.routes();
+    public RouterFunction<ServerResponse> monoRouterFunction(LingxiaoTestHttpRouter lingxiaoTestHttpRouter) {
+        return lingxiaoTestHttpRouter.routes();
     }
 
     @Bean

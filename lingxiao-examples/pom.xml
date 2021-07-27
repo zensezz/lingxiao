@@ -33,6 +33,7 @@
 
     <modules>
         <module>lingxiao-examples-http</module>
+        <module>lingxiao-examples-dubbo</module>
     </modules>
 
 
