@@ -19,22 +19,43 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 
     <parent>
-        <artifactId>lingxiao-client</artifactId>
+        <artifactId>lingxiao-client-dubbo</artifactId>
         <groupId>cn.zensezz</groupId>
         <version>1.0.0</version>
     </parent>
 
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>lingxiao-client-http</artifactId>
-    <packaging>pom</packaging>
+    <artifactId>lingxiao-client-dubbo-client</artifactId>
+    <packaging>jar</packaging>
 
-    <name>lingxiao-client-http</name>
+    <name>lingxiao-client-dubbo-client</name>
     <version>1.0.0</version>
-
-    <modules>
-        <module>lingxiao-client-http-springmvc</module>
-        <module>../lingxiao-client-dubbo</module>
-    </modules>
+    <dependencies>
+        <dependency>
+            <groupId>cn.zensezz</groupId>
+            <artifactId>lingxiao-client-core</artifactId>
+            <version>1.0.0</version>
+            <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.dubbo</groupId>
+            <artifactId>dubbo</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>cn.zensezz</groupId>
+            <artifactId>lingxiao-client-dubbo-common</artifactId>
+            <version>1.0.0</version>
+            <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>cn.zensezz</groupId>
+            <artifactId>lingxiao-common</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>jakarta.validation</groupId>
+            <artifactId>jakarta.validation-api</artifactId>
+        </dependency>
+    </dependencies>
 
 </project>

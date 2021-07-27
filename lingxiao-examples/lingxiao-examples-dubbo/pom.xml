@@ -13,28 +13,26 @@
   ~ See the License for the specific language governing permissions and
   ~ limitations under the License.
   -->
-
 <project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 
     <parent>
-        <artifactId>lingxiao-client</artifactId>
+        <artifactId>lingxiao-examples</artifactId>
         <groupId>cn.zensezz</groupId>
         <version>1.0.0</version>
     </parent>
 
     <modelVersion>4.0.0</modelVersion>
-
-    <artifactId>lingxiao-client-http</artifactId>
     <packaging>pom</packaging>
 
-    <name>lingxiao-client-http</name>
-    <version>1.0.0</version>
+    <artifactId>lingxiao-examples-dubbo</artifactId>
+
+    <name>lingxiao-examples-dubbo</name>
 
     <modules>
-        <module>lingxiao-client-http-springmvc</module>
-        <module>../lingxiao-client-dubbo</module>
+        <module>lingxiao-examples-dubbo-api</module>
+        <module>lingxiao-examples-dubbo-service</module>
     </modules>
 
 </project>

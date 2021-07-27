@@ -36,7 +36,7 @@ public class HashLoadBalance extends cn.zensezz.lingxiao.plugin.divide.balance.s
         final ConcurrentSkipListMap<Long, DivideUpstream> treeMap = new ConcurrentSkipListMap<>();
         for (DivideUpstream address : upstreamList) {
             for (int i = 0; i < VIRTUAL_NODE_NUM; i++) {
-                long addressHash = hash("SOUL-" + address.getUpstreamUrl() + "-HASH-" + i);
+                long addressHash = hash("LINGXIAO-" + address.getUpstreamUrl() + "-HASH-" + i);
                 treeMap.put(addressHash, address);
             }
         }

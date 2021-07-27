@@ -26,15 +26,15 @@
 
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>lingxiao-client-http</artifactId>
+    <artifactId>lingxiao-client-dubbo</artifactId>
     <packaging>pom</packaging>
 
-    <name>lingxiao-client-http</name>
+    <name>lingxiao-client-dubbo</name>
     <version>1.0.0</version>
 
     <modules>
-        <module>lingxiao-client-http-springmvc</module>
-        <module>../lingxiao-client-dubbo</module>
+        <module>lingxiao-client-dubbo-common</module>
+        <module>lingxiao-client-dubbo-client</module>
     </modules>
 
 </project>
