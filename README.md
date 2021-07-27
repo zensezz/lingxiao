@@ -1,2 +1,7 @@
 # lingxiao
-// todo
+
+### 架构图
+
+
+
+![process](.\image\process.jpg)
